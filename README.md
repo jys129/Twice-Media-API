@@ -7,7 +7,7 @@ Public API/client library like thing to get Twice Media
     - [ ] Certain keywords are automatically found (fansign, concert) that will programmatically rename the folder's name to `[Date]_member_type`
     - [ ] If those keywords are not found, the folder's path will be added to a text file to later rename by hand.
     - [ ] Delete any subfolders that reside inside of them (like group pictures)
-  - [ ] Rename all the files inside of the folders based on the folder names (this is locally, 
+  - [ ] Rename all the files inside of the folders based on the folder names (this is applies locally only, the online file structure will be different) 
     - E.g. if a file is in `./tzuyu/yes-or-yes/123456_concert`, the first image gets named `123456_1.jpg`, the second image gets named `123456_1.jpg`, and so on.
 ### Create Script for dealing with already uploaded files
   - [ ] Create a script to upload it to google drive, with the following requirements
