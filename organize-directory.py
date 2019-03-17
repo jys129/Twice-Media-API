@@ -69,7 +69,20 @@ def get_subdirs(dir_path, level="debug"):
 #     # return the built up list
 #     return directories
 
-
+def find_category(path):
+    # Possible categories:
+    # Concert (includes awards ceremonies), 
+    # fansign (basically if the directory name includes the word "fan" in it, it's probabl, y a fansign), 
+    # other (includes keywords FOR SURE that are other e.g. names of variety shows, airports)
+    # manual => if the directory name doesn't contain any keywords, then it will get moved to the manual folder for human review
+    # All keywords are case-insensitive
+    KEYWORDS = [["concert", "sbs", "gayo", "award", "showcase", "exhibition", 
+                    "mcountdown", "music core", "festival", "music bank", "kcon", 
+                    "show champion",  "university"], # Concert: Not sure if "university" should belong here
+                ["fan" ], # Fansign
+                ["airport", "jtbc", "twicetagram", "sns", "instagram"]] # Other: Not sure if "jtbc" belongs here
+                
+    pass
 
 # THE STORY BEGINS
 def main():
