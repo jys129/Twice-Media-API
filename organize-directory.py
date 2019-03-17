@@ -73,6 +73,14 @@ def get_subdirs(dir_path, level="debug"):
 
 # THE STORY BEGINS
 def main():
+    # setup (e.g. creating directories)
+    if not (root / Path("manual")).is_dir():
+        logger.info("Could not find manual folder. Creating now...")
+        (root / Path("manual")).mkdir()
+        logger.info("Done!")
+    else:
+        logger.info("Found manual folder sucessfully.")
+
     logger.info("Looking through era level")
     eras = get_subdirs(root, level="ERA")
 
@@ -84,9 +92,11 @@ def main():
 
         # get the event info to rename the folder
         for event in events:
-            # abs_path = str(event.absolute)
-            # date = re.search(r"*(\d){6}*", abs_path) #folders usually have the date in them in the form of YYMMDD
             logger.info("Doing event: {}", event)
+            abs_path = str(event.resolve())
+            date = re.search(r"(\d{6})", abs_path) #folders usually have the date in them in the form of YYMMDD
+            logger.log("EVENT", "Date={}", date.group(1))
+            
 
 
     #rename all the files inside the folders here
