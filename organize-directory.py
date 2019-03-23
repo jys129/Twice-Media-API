@@ -5,10 +5,10 @@ import re
 
 root = Path(os.getcwd())
 
-member_level = logger.level("MEMBER", no=38, color="<green>", icon="🐍")
-era_level = logger.level("ERA", no=38, color="<yellow>", icon="🐍")
-event_level = logger.level("EVENT", no=38, color="<blue>", icon="🐍")
-
+member_level = logger.level("MEMBER", no=38, color="<green>", icon="💦")
+era_level = logger.level("ERA", no=38, color="<yellow>", icon="📀")
+event_level = logger.level("EVENT", no=38, color="<blue>", icon="🎥")
+setup_level = logger.level("SETUP", no=38, color="<white>", icon="🔨")
 # # all of the available eras
 # eras = ["yes-or-yes", 
 #         'ooh-ahh', 
@@ -77,6 +77,10 @@ def get_subdirs(dir_path, level="debug"):
 #     # return the built up list
 #     return directories
 
+
+
+
+
 def find_category(path):
     """Given a path, it finds what category the picture should be in
     
@@ -95,7 +99,7 @@ def find_category(path):
                     "mcountdown", "music core", "festival", "music bank", "kcon", 
                     "show champion",  "university"], # Concert: Not sure if "university" should belong here
                 ["fan" ], # Fansign
-                ["airport", "jtbc", "twicetagram", "sns", "instagram"]] # Other: Not sure if "jtbc" belongs here
+                ["airport", "jtbc", "twicetagram", "sns", "instagram", "idol star athletics"]] # Other: Not sure if "jtbc" belongs here
     # Search through everything because why the hell not
     # n^2 for the win
     for i in range(0, 3):
@@ -111,15 +115,27 @@ def find_category(path):
 
     return "unknown"
 
+def setup():
+    """Makes sure everything is set up and ready to be run (e.g. folders).
+
+    Returns nothing.
+    """
+    # make sure manual,group directories are there
+    req_dirs = ["manual", "group"]
+
+    for req_dir in req_dirs:
+        if not (root / Path(req_dir)).is_dir():
+            logger.log("SETUP", "Could not find {} folder. Creating now...", req_dir)
+            (root / Path(req_dir)).mkdir()
+            logger.log("SETUP", "Done!")
+        else:
+            logger.log("SETUP", "Found {} folder sucessfully.", req_dir)
+
+
 # THE STORY BEGINS
 def main():
-    # setup (e.g. creating directories)
-    if not (root / Path("manual")).is_dir():
-        logger.info("Could not find manual folder. Creating now...")
-        (root / Path("manual")).mkdir()
-        logger.info("Done!")
-    else:
-        logger.info("Found manual folder sucessfully.")
+    # run the setup to make sure required folders are in place.
+    setup()
 
     logger.info("Looking through era level")
     eras = get_subdirs(root, level="ERA")
@@ -132,6 +148,10 @@ def main():
 
         # get the event info to rename the folder
         for event in events:
+            # Look through the subfolders in an event and extract any folders that contain "press" to 
+
+
+            # Move "Group" pictures to group folder
             logger.info("Doing event: {}", event)
             abs_path = str(event.resolve())
             date = re.search(r"(\d{6})", abs_path) #folders usually have the date in them in the form of YYMMDD
@@ -140,8 +160,9 @@ def main():
 
 
     #rename all the files inside the folders here
-            
+
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    setup()
