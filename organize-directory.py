@@ -28,6 +28,14 @@ eras = []
 # Finds all the subdirectories (on the current level!)
 # and returns it in a python list
 def get_subdirs(dir_path, level="debug"):
+    """Gets all the subdirectories of a certain folder
+    
+    Arguments:
+        dir_path {pathlib Path} -- The path of a directory to get the subdirectories from
+    
+    Keyword Arguments:
+        level {loguru logger level} -- The loguru logger level to output the logs at (default: {"debug"})
+    """
     logger.log(level, "Getting subdirs from {}", dir_path)
     directories = [] # a list to append to
     
@@ -70,6 +78,13 @@ def get_subdirs(dir_path, level="debug"):
 #     return directories
 
 def find_category(path):
+    """Given a path, it finds what category the picture should be in
+    
+    Arguments:
+        path {pathlib's Path} -- The path to an event folder
+    """
+
+
     # Possible categories:
     # Concert (includes awards ceremonies), 
     # fansign (basically if the directory name includes the word "fan" in it, it's probabl, y a fansign), 
