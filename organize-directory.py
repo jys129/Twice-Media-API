@@ -81,8 +81,20 @@ def find_category(path):
                     "show champion",  "university"], # Concert: Not sure if "university" should belong here
                 ["fan" ], # Fansign
                 ["airport", "jtbc", "twicetagram", "sns", "instagram"]] # Other: Not sure if "jtbc" belongs here
-                
-    pass
+    # Search through everything because why the hell not
+    # n^2 for the win
+    for i in range(0, 3):
+        for j in range(0, len(KEYWORDS[i])):
+            #TODO Reimplement with proper switches/make actual good code.
+            if(KEYWORDS[i][j] in path.resolve()): 
+                if j == 0:
+                    return "concert"
+                elif j == 1:
+                    return "fan"
+                elif j == 2:
+                    return "other"
+
+    return "unknown"
 
 # THE STORY BEGINS
 def main():
