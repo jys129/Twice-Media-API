@@ -4,10 +4,11 @@ Public API/client library like thing to get Twice Media
 ## TODO
 ### Create Script for Organizing Files Locally Before Upload
   - [ ] Reorganize the directories based on the following file structure
-    - [ ] Certain keywords are automatically found (fansign, concert) that will programmatically rename the folder's name to `[Date]_member_type`
+    - [ ] Certain keywords are automatically found (fansign, concert) that will programmatically rename the folder's name to `[Date]_[member]_[type]_[Original name]`
     - [ ] If those keywords are not found, the folder's path will be added to a text file to later rename by hand.
-    - [ ] Extract any `_Press` folders into the main event folder by using "
-    - [ ] Delete any subfolders that reside inside of them (like group pictures)
+    - [ ] Extract any `_Press` folders into the main event folder by using
+    - [ ] Move any `_group` folder images to the group folder if the group folder doesn't already contain that image.
+    - [ ] Delete any other subfolders that reside inside of them (like low quality pictures)
   - [ ] Rename all the files inside of the folders based on the folder names (this is applies locally only, the online file structure will be different) 
     - E.g. if a file is in `./tzuyu/yes-or-yes/123456_concert`, the first image gets named `123456_1.jpg`, the second image gets named `123456_1.jpg`, and so on.
 ### Create Script for dealing with already uploaded files
