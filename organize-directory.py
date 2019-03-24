@@ -99,25 +99,24 @@ def find_category(path):
     # other (includes keywords FOR SURE that are other e.g. names of variety shows, airports)
     # manual => if the directory name doesn't contain any keywords, then it will get moved to the manual folder for human review
     # All keywords are case-insensitive
-    KEYWORDS = [["concert", "sbs", "gayo", "award", "showcase", "exhibition", 
+    KEYWORDS = {"concert": ["concert", "sbs", "gayo", "award", "showcase", "exhibition", 
                     "mcountdown", "music core", "festival", "music bank", "kcon", 
                     "show champion",  "university"], # Concert: Not sure if "university" should belong here
-                ["fan" ], # Fansign
-                ["airport", "jtbc", "twicetagram", "sns", "instagram", "idol star athletics"]] # Other: Not sure if "jtbc" belongs here
-    # Search through everything because why the hell not
-    # n^2 for the win
-    for i in range(0, 3):
-        for j in range(0, len(KEYWORDS[i])):
-            #TODO Reimplement with proper switches/make actual good code.
-            if(KEYWORDS[i][j] in path.resolve()): 
-                if j == 0:
-                    return "concert"
-                elif j == 1:
-                    return "fan"
-                elif j == 2:
-                    return "other"
+                "fan": ["fan"], # Fansign
+                "airport": ["airport"], #Airport photos, because why not
+                "other": ["jtbc", "twicetagram", "sns", "instagram", "idol star athletics"] # Other: Not sure if "jtbc" belongs here
+                } 
+   
+    abs_path = str(path.absolute())
+    #look through all the keywords
+    for event_type, keyword in KEYWORDS.items():
+        # checks to see if the path contains any keywords
+        if utils.compare_in_nocase(keyword, abs_path): #if the path contains a keyword, returns the type of event AKA the dictionary key (e.g. "concert")
+            return event_type
 
-    return "unknown"
+    # if none of the keywords are present in the path, then the program isn't sure
+    # so it must return "uknown" so that it can be moved to the manual correction folder
+    return "unkown"
 
 def setup():
     """Makes sure everything is set up and ready to be run (e.g. folders).
