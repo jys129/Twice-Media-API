@@ -10,7 +10,7 @@ Public API/client library like thing to get Twice Media
     - [X] Move any `_group` folder images to the group folder if the group folder doesn't already contain that image.
     - [X] Delete any other subfolders that reside inside of them (like low quality pictures)
   - [ ] Rename all the files inside of the folders based on the folder names (this is applies locally only, the online file structure will be different) 
-    - E.g. if a file is in `./tzuyu/yes-or-yes/123456_concert`, the first image gets named `123456_1.jpg`, the second image gets named `123456_1.jpg`, and so on.
+    - E.g. if a file is in `./tzuyu/yes-or-yes/123456_concert`, the first image gets named `123456_1.jpg`, the second image gets named `123456_2.jpg`, and so on.
 ### Create Script for uploading files
    - [ ] Create a script to upload it to google drive, with the following requirements
    - [ ] Takes in the path of where the file was `./tzuyu/yes-or-yes/123456_concert/123456_4.png`, then based on that path, it will add tags.
