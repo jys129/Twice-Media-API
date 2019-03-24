@@ -20,7 +20,7 @@ Public API/client library like thing to get Twice Media
           - `event_type` = string `["concert", "fan", "airport", "other]`
           - `event_name` = string (Can contain special chars)
           - `era` = string `["yes-or-yes", "ooh-ahh", "cheer-up", "tt", "knock-knock", "signal", "likey", "heart-shaker", "what-is-love", "dance-the-night-away", "bdz", "yes-or-yes"]`
-          - `member` = string `["group", "jihyo", "tzuyu", "sana", "momo", "mina", "nayeon", "dahyun", "jeongyeon", "chaeyoung"]
+          - `member` = string `["group", "jihyo", "tzuyu", "sana", "momo", "mina", "nayeon", "dahyun", "jeongyeon", "chaeyoung"]`
          
         
      - [ ] Randomizes the file name on upload.
