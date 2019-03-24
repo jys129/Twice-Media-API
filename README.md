@@ -4,7 +4,7 @@ Public API/client library like thing to get Twice Media
 ## TODO
 ### Create Script for Organizing Files Locally Before Upload
   - [ ] Reorganize the directories based on the following file structure
-    - [ ] Certain keywords are automatically found (fansign, concert) that will programmatically rename the folder's name to `[Date]_[member]_[type]_[Original name]`
+    - [ ] Certain keywords are automatically found (fansign, concert) that will programmatically rename the folder's name to `[Date]_[type]_[Original name]`
     - [ ] If those keywords are not found, the folder's path will be added to a text file to later rename by hand.
     - [ ] Extract any `_Press` folders into the main event folder by using
     - [ ] Move any `_group` folder images to the group folder if the group folder doesn't already contain that image.
