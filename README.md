@@ -14,7 +14,7 @@ Public API/client library like thing to get Twice Media
 ### Create Script for uploading files
    - [ ] Create a script to upload it to google drive, with the following requirements
      - [ ] Takes in the path of where the file was `./tzuyu/yes-or-yes/123456_concert/123456_4.png`, then based on that path, it will add tags.
-     - [ ] Adds metadata based on the filename e.g. `123456_concert_1.jpg` gets the tag of `date='123456'`, `type='concert'`, `member='membernamehere'
+     - [ ] Adds metadata based on the filename e.g. `123456_concert_1.jpg` gets the tag of `date='123456'`, `type='concert'`, `member='membernamehere'`
         - #### Types of Metadata
           - `date_taken` = string `YYMMDD`
           - `event_type` = string `["concert", "fan", "airport", "other]`
